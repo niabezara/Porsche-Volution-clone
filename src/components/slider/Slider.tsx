@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import SideBar from "../navigation/SideBar";
 import { cn } from "@/utils/utils";
 import { Icons } from "../shared/Icons";
-import SliderCard from "./sliderCard";
+import SliderCard from "./SliderCard";
 
 export default function Slider({
   startSoundPlayed,
