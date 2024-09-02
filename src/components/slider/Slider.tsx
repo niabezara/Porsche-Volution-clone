@@ -76,23 +76,26 @@ export default function Slider({
           >
             <div
               className={cn(
-                "w-[70%] relative top-[60px] m-auto h-full  items-center text-center justify-center"
+                "w-[70%] relative top-[0px] m-auto h-full items-center text-center justify-center"
               )}
               style={{ color: textColor }}
             >
-              <h1
-                className={cn("text-[22px] w-full")}
-                style={{ color: textColor }}
-              >
-                {i.year}
-              </h1>
-              <hr className="w-[5%] border-solid border-[#B10909] mt-[11px] m-auto" />
-              <p
-                className="text-[13px] text-white/10 mt-[25px]"
-                style={{ color: textColor }}
-              >
-                {i.about}
-              </p>
+              <div className="top-[60px] relative">
+                <h1
+                  className={cn("text-[29px] w-full")}
+                  style={{ color: textColor }}
+                >
+                  {i.title}
+                </h1>
+                <hr className="w-[5%] border-solid border-[#B10909] mt-[11px] m-auto" />
+                <div
+                  className="text-[15px] mt-[25px] text-center w-full"
+                  style={{ color: textColor }}
+                >
+                  <span className="text-[20px] font-bold">{i.span}</span>
+                  {i.about}
+                </div>
+              </div>
               <audio
                 ref={(el) => {
                   audioRefs.current[index] = el;

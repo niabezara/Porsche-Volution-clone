@@ -1,6 +1,7 @@
 export const sliderData = [
   {
     id: 1,
+    title: "Ferdinand Porsche",
     year: "Intro",
     color: "#ffffff",
     image: "/slides/founder.jpg",
@@ -10,7 +11,8 @@ export const sliderData = [
   },
   {
     id: 2,
-    year: "1930",
+    title: "1930s",
+    year: "1930s",
     color: "#000000",
     image: "/slides/1930.jpg",
     span: "Type 64 Racing Coupé:",
@@ -20,7 +22,8 @@ export const sliderData = [
   },
   {
     id: 3,
-    year: "1940",
+    title: "1940s",
+    year: "1940s",
     color: "#ffffff",
     image: "/slides/1940.jpg",
     span: "356 Speedster:",
@@ -30,7 +33,8 @@ export const sliderData = [
   },
   {
     id: 4,
-    year: "1950",
+    title: "1950s",
+    year: "1950s",
     color: "#000000",
     image: "/slides/1950.jpg",
     span: "356 Carrera Cabriolet:",
@@ -40,7 +44,8 @@ export const sliderData = [
   },
   {
     id: 5,
-    year: "1960",
+    title: "1960s",
+    year: "1960s",
     color: "#ffffff",
     image: "/slides/1960.jpg",
     span: "901:",
@@ -50,7 +55,8 @@ export const sliderData = [
   },
   {
     id: 6,
-    year: "1970",
+    title: "1970s",
+    year: "1970s",
     color: "#ffffff",
     image: "/slides/1970.jpg",
     span: "911 Turbo:",
@@ -61,7 +67,8 @@ export const sliderData = [
 
   {
     id: 7,
-    year: "1980",
+    title: "1980s",
+    year: "1980s",
     color: "#000000",
     image: "/slides/1980.jpg",
     span: "911 Carrera Speedster:",
@@ -71,7 +78,8 @@ export const sliderData = [
   },
   {
     id: 8,
-    year: "1990",
+    title: "1990s",
+    year: "1990s",
     color: "#ffffff",
     image: "/slides/1990.jpg",
     span: "911:",
@@ -81,7 +89,8 @@ export const sliderData = [
   },
   {
     id: 9,
-    year: "2000",
+    title: "2000s",
+    year: "2000s",
     color: "#ffffff",
     image: "/slides/2000.jpg",
     span: "911:",
@@ -91,7 +100,8 @@ export const sliderData = [
   },
   {
     id: 10,
-    year: "2010",
+    title: "2010s",
+    year: "2010s",
     color: "#000000",
     image: "/slides/2010.jpg",
     span: "911 Carrera 4S Coupe:",
@@ -101,7 +111,8 @@ export const sliderData = [
   },
   {
     id: 11,
-    year: "2020",
+    title: "2020s",
+    year: "2020s",
     color: "#ffffff",
     image: "/slides/2020.jpg",
     span: "The 911.",
