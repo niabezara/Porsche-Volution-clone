@@ -1,10 +1,7 @@
 "use client";
 import { sliderData } from "@/utils/data";
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import SideBar from "../navigation/SideBar";
-import { cn } from "@/utils/utils";
-import { Icons } from "../shared/Icons";
 import SliderCard from "./SliderCard";
 
 export default function Slider({
