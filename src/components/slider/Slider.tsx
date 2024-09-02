@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import SideBar from "../navigation/SideBar";
 import { cn } from "@/utils/utils";
 import { Icons } from "../shared/Icons";
+import SliderCard from "./sliderCard";
 
 export default function Slider({
   startSoundPlayed,
@@ -86,46 +87,14 @@ export default function Slider({
             className={`bg-cover w-full h-full bg-center bg-no-repeat bg-fixed relative`}
             style={{ backgroundImage: `url('${i.image}')` }}
           >
-            <div
-              className={cn(
-                "w-[50%] relative top-[0px] m-auto h-full items-center text-center justify-center"
-              )}
-              style={{ color: textColor }}
-            >
-              <div className="top-[60px] relative">
-                <h1
-                  className={cn("text-[29px] w-full")}
-                  style={{ color: textColor }}
-                >
-                  {i.title}
-                </h1>
-                <hr className="w-[5%] border-solid border-[#B10909] mt-[11px] m-auto" />
-                <div
-                  className="text-[15px] mt-[25px] text-center w-full"
-                  style={{ color: textColor }}
-                >
-                  <span className="text-[20px] font-bold">{i.span}</span>
-                  {i.about}
-                </div>
-              </div>
-              <audio
-                ref={(el) => {
-                  audioRefs.current[index] = el;
-                }} // <-- Corrected ref function
-                src={i.audio}
-                loop
-              />
-            </div>
-            <div
-              className="fixed flex justify-center left-4 items-center bottom-[25px] z-[999] bg-black/5 px-[5px] py-[7px] cursor-pointer h-[30px] w-[30px]"
-              onClick={toggleMute}
-            >
-              {isMuted ? (
-                <Icons.speakerCross color={textColor} />
-              ) : (
-                <Icons.speaker />
-              )}
-            </div>
+            <SliderCard
+              i={i}
+              index={index}
+              textColor={textColor}
+              isMuted={isMuted}
+              toggleMute={toggleMute}
+              audioRefs={audioRefs}
+            />
           </section>
         );
       })}
