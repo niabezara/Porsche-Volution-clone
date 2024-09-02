@@ -19,16 +19,25 @@ export default function Hero() {
 
   const handleScroll = useCallback(() => {
     const audio = new Audio("/sounds/start.ogg");
-    audio.play();
-    audio.onended = () => {
-      sectionRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+
+    // Ensure audio playback is triggered directly by the user interaction
+    audio
+      .play()
+      .then(() => {
+        audio.onended = () => {
+          sectionRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+          setShowLogo(true);
+          setShowSideBar(true);
+          setStartSoundPlayed(true); // Mark that the start sound has played
+        };
+      })
+      .catch((error) => {
+        // Handle errors here
+        console.error("Audio playback failed: ", error);
       });
-      setShowLogo(true);
-      setShowSideBar(true);
-      setStartSoundPlayed(true); // Mark that the start sound has played
-    };
   }, [setShowLogo, setShowSideBar]);
 
   const handleResize = useCallback(() => {
