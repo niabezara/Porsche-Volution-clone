@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SideBar from "../navigation/SideBar";
 import { cn } from "@/utils/utils";
+import { Icons } from "../shared/Icons";
 
 export default function Slider({
   startSoundPlayed,
@@ -11,6 +12,7 @@ export default function Slider({
   startSoundPlayed: boolean;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMuted, setIsMuted] = useState(false);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
 
@@ -56,8 +58,18 @@ export default function Slider({
     // Play the active audio
     if (audioRefs.current[activeIndex]) {
       audioRefs.current[activeIndex].play();
+      audioRefs.current[activeIndex].muted = isMuted;
     }
-  }, [activeIndex, startSoundPlayed]);
+  }, [activeIndex, startSoundPlayed, isMuted]);
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+    audioRefs.current.forEach((audio) => {
+      if (audio) {
+        audio.muted = !isMuted;
+      }
+    });
+  };
 
   return (
     <div className="w-full h-screen overflow-auto relative">
@@ -76,7 +88,7 @@ export default function Slider({
           >
             <div
               className={cn(
-                "w-[70%] relative top-[0px] m-auto h-full items-center text-center justify-center"
+                "w-[50%] relative top-[0px] m-auto h-full items-center text-center justify-center"
               )}
               style={{ color: textColor }}
             >
@@ -101,7 +113,18 @@ export default function Slider({
                   audioRefs.current[index] = el;
                 }} // <-- Corrected ref function
                 src={i.audio}
+                loop
               />
+            </div>
+            <div
+              className="fixed flex justify-center left-4 items-center bottom-[25px] z-[999] bg-black/5 px-[5px] py-[7px] cursor-pointer h-[30px] w-[30px]"
+              onClick={toggleMute}
+            >
+              {isMuted ? (
+                <Icons.speakerCross color={textColor} />
+              ) : (
+                <Icons.speaker />
+              )}
             </div>
           </section>
         );
